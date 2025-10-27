@@ -1,0 +1,249 @@
+/* .admin-dashboard {
+  padding: 80px 30px 40px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
+.admin-dashboard h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.admin-dashboard section {
+  background: #ffffff;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.admin-dashboard section h3,
+.admin-dashboard section h2 {
+  color: #2563eb;
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 5px;
+}
+
+.admin-dashboard input,
+.admin-dashboard select {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.admin-dashboard input:focus,
+.admin-dashboard select:focus {
+  border-color: #2563eb;
+}
+
+.admin-dashboard button {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.admin-dashboard button:hover {
+  background-color: #1e40af;
+}
+
+.admin-dashboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-dashboard li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f4f6;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.admin-dashboard li button {
+  background-color: #ef4444;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.admin-dashboard li button:hover {
+  background-color: #dc2626;
+}
+
+.admin-dashboard section + section {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 70px 15px;
+  }
+
+  .admin-dashboard input,
+  .admin-dashboard select {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-dashboard button {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .admin-dashboard li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-dashboard li button {
+    align-self: flex-end;
+  }
+} */
+
+.admin-dashboard-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+.admin-layout {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 240px;
+  background-color: #1e3a8a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 12px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.sidebar li:hover {
+  background-color: #3748ac;
+}
+
+.sidebar li.active {
+  background-color: #2563eb;
+}
+
+/* === Main Content === */
+.dashboard-content {
+  flex: 1;
+  padding: 30px 50px;
+  overflow-y: auto;
+}
+
+.dashboard-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 24px;
+}
+
+/* Reuse old form + list styles */
+.dashboard-section {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+input, select {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+.data-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data-list li {
+  background: #f3f4f6;
+  padding: 10px 12px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.data-list li:hover {
+  background: #e5e7eb;
+}
+

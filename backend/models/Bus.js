@@ -18,11 +18,6 @@ const busSchema = new mongoose.Schema({
     type: Number, 
     required: true 
 },
-  depot_id: {
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: "Depot",
-    required: true,
-},
 }, { timestamps: true });
 
 const Bus = mongoose.model('Bus', busSchema);

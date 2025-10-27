@@ -21,8 +21,8 @@ const scheduleSchema = new mongoose.Schema({
     ref: 'Employee',
     required: true,
   },
-  departureTime: { type: Date, required: true },
-  arrivalTime: { type: Date, required: true },
+  departureTime: { type: String, required: true },
+  arrivalTime: { type: String, required: true },
 }, { timestamps: true });
 
 const Schedule = mongoose.model('Schedule', scheduleSchema);

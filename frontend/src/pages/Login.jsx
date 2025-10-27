@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
-import api from "../api/axios.js";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext.js";
+import api from "../services/api.js";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext.jsx";
+import '../styles/login.css';
 
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
@@ -24,8 +25,10 @@ const LoginPage = () => {
           navigate("/employee");
           break;
         case "passenger":
+          navigate("/passenger");
+          break;
         default:
-            navigate("/passenger");
+          navigate("/passenger");
       }
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
@@ -33,13 +36,19 @@ const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input name="email" placeholder="Email" onChange={handleChange} required />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        <input name="email" placeholder="Email" onChange={handleChange} required />
+        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+        <button type="submit">Login</button>
+        <p style={{ marginTop: "10px", textAlign: "center" }}>
+            Don't have an account? <Link to="/register">Register here</Link>
+        </p>
+      </form>
+    </div>
   );
 };
 
 export default LoginPage;
+

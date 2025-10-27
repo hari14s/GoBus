@@ -14,7 +14,7 @@ export async function createBus(req, res) {
 // Get all buses
 export async function getAllBuses(req, res) {
   try {
-    const buses = await find().populate('depot');
+    const buses = await Bus.find();
     res.json(buses);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -24,7 +24,7 @@ export async function getAllBuses(req, res) {
 // Get bus by ID
 export async function getBusById(req, res) {
   try {
-    const bus = await findById(req.params.id).populate('depot');
+    const bus = await Bus.findById(req.params.id);
     if (!bus) return res.status(404).json({ message: 'Bus not found' });
     res.json(bus);
   } catch (err) {
@@ -35,7 +35,7 @@ export async function getBusById(req, res) {
 // Update bus
 export async function updateBus(req, res) {
   try {
-    const bus = await findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const bus = await Bus.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!bus) return res.status(404).json({ message: 'Bus not found' });
     res.json(bus);
   } catch (err) {
@@ -46,7 +46,7 @@ export async function updateBus(req, res) {
 // Delete bus
 export async function deleteBus(req, res) {
   try {
-    const bus = await findByIdAndDelete(req.params.id);
+    const bus = await Bus.findByIdAndDelete(req.params.id);
     if (!bus) return res.status(404).json({ message: 'Bus not found' });
     res.json({ message: 'Bus deleted successfully' });
   } catch (err) {

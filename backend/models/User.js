@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+const { genSalt, hash} = bcrypt;
 
 const userSchema = new mongoose.Schema({
   username: { 
@@ -31,11 +32,6 @@ userSchema.pre('save', async function (next) {
   this.password = await hash(this.password, salt);
   next();
 });
-
-// Password match method
-userSchema.methods.matchPassword = async function (enteredPassword) {
-  return await compare(enteredPassword, this.password);
-};
 
 const User = mongoose.model('User', userSchema);
 export default User;

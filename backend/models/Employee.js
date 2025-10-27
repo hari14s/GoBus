@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const employeeSchema = new Schema({
-  user_id: {
+const employeeSchema = new mongoose.Schema({
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
@@ -14,16 +14,14 @@ const employeeSchema = new Schema({
     type: String, 
     required: true 
 },
-    dob: { type: Date },
-    type: { 
-        type: String, 
-        enum: ["driver", "conductor"], 
-        required: true },
-    gender: { 
-        type: String, 
-        enum: ["male", "female", "other"] },
-    license_number: { type: String },
-    phone_no: { type: String },
+  dob: { type: Date },
+  phone_no: { type: String },
+  EmployeeType: { 
+      type: String, 
+      enum: ["driver", "conductor"], 
+      required: true },
+  license_number: { type: String },
+  gender: { type: String },
 }, { timestamps: true });
 
 const Employee = mongoose.model('Employee', employeeSchema);

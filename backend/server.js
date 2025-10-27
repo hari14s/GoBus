@@ -2,6 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
+import busRoutes from "./routes/busRoutes.js"
+import routeRoutes from "./routes/routeRoutes.js";
+import scheduleRoutes from "./routes/scheduleRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import employeeRoutes from "./routes/employeeRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -16,7 +21,6 @@ app.get("/", (req, res) => {
 
 app.use('/api/buses', busRoutes);
 app.use('/api/routes', routeRoutes);
-app.use('/api/depots', depotRoutes);
 app.use('/api/schedules', scheduleRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/employees', employeeRoutes);

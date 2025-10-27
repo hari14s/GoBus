@@ -1,0 +1,97 @@
+/* Full-page centered container */
+.employee-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents scrollbars */
+  background: linear-gradient(160deg, #1e3a8a 0%, #3b82f6 100%);
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Form box */
+.employee-details-form {
+  background-color: #ffffff;
+  padding: 48px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 400px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.employee-details-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.employee-details-form h2 {
+  margin-bottom: 28px;
+  color: #1f2937;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Inputs */
+.employee-details-form input,
+.employee-details-form select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.employee-details-form input:focus,
+.employee-details-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Labels */
+.employee-details-form label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* Button */
+.employee-details-form button {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.employee-details-form button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 420px) {
+  .employee-details-form {
+    width: 90%;
+    padding: 40px 28px;
+  }
+}
+
+

@@ -1,0 +1,131 @@
+.passenger-dashboard {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+.passenger-dashboard h2 {
+  text-align: center;
+  color: #004aad;
+  margin-bottom: 1.5rem;
+}
+
+/* Route List */
+.route-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Route Card */
+.route-card {
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background-color: #f9fafc;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.route-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f3f7ff;
+}
+
+/* Route Header */
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  background-color: #eef3ff;
+}
+
+.route-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #004aad;
+}
+
+.route-info p {
+  margin: 0.2rem 0 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* View Button */
+.view-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.view-btn:hover {
+  background-color: #0056d2;
+}
+
+/* Schedule Dropdown */
+.schedule-dropdown {
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+/* Individual Schedule Card */
+.schedule-card {
+  background-color: #f7f9fc;
+  border-left: 5px solid #007bff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.schedule-card:hover {
+  transform: translateY(-2px);
+  background-color: #eef4ff;
+}
+
+.schedule-card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.schedule-card strong {
+  color: #000;
+}
+
+/* No Schedules Text */
+.no-schedule {
+  color: #777;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .passenger-dashboard {
+    padding: 1rem;
+  }
+
+  .route-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .view-btn {
+    margin-top: 0.5rem;
+    align-self: flex-end;
+  }
+}

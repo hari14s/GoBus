@@ -1,7 +1,8 @@
-const Schedule = require('../models/Schedule');
+import Schedule from '../models/Schedule.js';
+import Employee from '../models/Employee.js';
 
 // Create Schedule
-exports.createSchedule = async (req, res) => {
+export async function createSchedule(req, res) {
   try {
     const schedule = await Schedule.create(req.body);
     res.status(201).json(schedule);
@@ -11,11 +12,11 @@ exports.createSchedule = async (req, res) => {
 };
 
 // Get All Schedules
-exports.getSchedules = async (req, res) => {
+export async function getSchedules(req, res) {
   try {
     const schedules = await Schedule.find()
-      .populate('route')
-      .populate('bus')
+      .populate('route_id')
+      .populate('bus_id')
       .populate('driver')
       .populate('conductor');
     res.json(schedules);
@@ -25,7 +26,7 @@ exports.getSchedules = async (req, res) => {
 };
 
 // Get Schedule by ID
-exports.getScheduleById = async (req, res) => {
+export async function getScheduleById(req, res) {
   try {
     const schedule = await Schedule.findById(req.params.id)
       .populate('route')
@@ -40,7 +41,7 @@ exports.getScheduleById = async (req, res) => {
 };
 
 // Update Schedule
-exports.updateSchedule = async (req, res) => {
+export async function updateSchedule (req, res) {
   try {
     const schedule = await Schedule.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!schedule) return res.status(404).json({ message: 'Schedule not found' });
@@ -51,7 +52,7 @@ exports.updateSchedule = async (req, res) => {
 };
 
 // Delete Schedule
-exports.deleteSchedule = async (req, res) => {
+export async function deleteSchedule(req, res) {
   try {
     const schedule = await Schedule.findByIdAndDelete(req.params.id);
     if (!schedule) return res.status(404).json({ message: 'Schedule not found' });
@@ -62,16 +63,20 @@ exports.deleteSchedule = async (req, res) => {
 };
 
 // Get Schedules for a specific employee
-exports.getSchedulesByEmployee = async (req, res) => {
+export async function getSchedulesByEmployee (req, res) {
   try {
+    console.log("UserId param:", req.params.id);
+    const employee = await Employee.findOne({ userId: req.params.id });
+    if (!employee) return res.status(404).json({ message: "Employee not found" });
+
     const schedules = await Schedule.find({
-      $or: [{ driver: req.params.id }, { conductor: req.params.id }]
+      $or: [{ driver: employee._id }, { conductor: employee._id }]
     })
-    .populate('route')
-    .populate('bus')
+    .populate('route_id')
+    .populate('bus_id')
     .populate('driver')
     .populate('conductor');
-    res.json(schedules);
+    res.json(schedules); 
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

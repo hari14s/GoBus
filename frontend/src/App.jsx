@@ -1,20 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext.jsx";
+
 import LoginPage from "./pages/Login.jsx";
 import RegisterPage from "./pages/Register.jsx";
-import ProfilePage from "./pages/Profile.jsx";
 import AdminDashboard from "./pages/AdminDashBoard.jsx";
 import EmployeeDashboard from "./pages/EmployeeDashboard.jsx";
 import PassengerDashboard from "./pages/PassengerDashBoard.jsx";
-import EmployeeDetails from "./pages/EmployeeDetails.jsx"
+import EmployeeDetails from "./pages/EmployeeDetails.jsx";
 
-const App = () => (
-  <BrowserRouter>
+const App = () => {
+   const { user } = useContext(AuthContext);
+
+   return(
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-
       <Route
           path="/admin"
           element={user?.usertype === "admin" ? <AdminDashboard /> : <Navigate to="/login" />}
@@ -24,14 +26,14 @@ const App = () => (
           element={user?.usertype === "employee" ? <EmployeeDashboard /> : <Navigate to="/login" />}
         />
       <Route
-          path="/dashboard"
+          path="/passenger"
           element={user?.usertype === "passenger" ? <PassengerDashboard /> : <Navigate to="/login" />}
         />
       <Route path="*" element={<Navigate to="/login" />} />
       <Route path="/details" element={<EmployeeDetails/>} />
     </Routes>
-  </BrowserRouter>
-);
+   );
+};
 
 export default App;
 
